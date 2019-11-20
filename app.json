@@ -1,0 +1,32 @@
+{
+    "name": "Flask Boilerplate",
+    "description": "Simple Flask boilerplate with Postgres, Docker, and Heroku",
+    "keywords": [
+        "flask",
+        "postgresql"
+    ],
+    "repository": "https://github.com/appliedbloc/flask-postgres-boilerplate.git",
+    "success_url": "/",
+    "scripts": {
+        "postdeploy": "make heroku_setup"
+    },
+    "env": {
+        "FLASK_ENV": {
+            "description": "Environment variable that determines the Flask configuration - namely where to get postgres db url",
+            "value": "prod"
+        }
+    },
+    "addons": [
+        {
+            "plan": "heroku-postgresql",
+            "options": {
+                "version": "9.5"
+            }
+        }
+    ],
+    "buildpacks": [
+        {
+            "url": "heroku/python"
+        }
+    ]
+}
